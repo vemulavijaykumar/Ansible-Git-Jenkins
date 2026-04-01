@@ -1,0 +1,11 @@
+- name: Check disk
+  hosts: servers
+
+  tasks:
+    - name: Run df command
+      shell: df -h
+      register: output
+
+    - name: Show output
+      debug:
+        var: output.stdout

@@ -1,0 +1,13 @@
+- name: Practice copy module
+  hosts: servers
+
+  tasks:
+    - name: Copy local file to remote server
+      copy:
+        src: /etc/hosts
+        dest: /home/ubuntu/hosts-copy.txt
+
+    - name: Copy content directly
+      copy:
+        content: "Hello Vijay, this is Ansible practice!"
+        dest: /home/ubuntu/demo-folder/message.txt

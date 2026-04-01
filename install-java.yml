@@ -1,0 +1,23 @@
+---
+- name: Install Java on all servers
+  hosts: servers
+  become: yes
+
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install OpenJDK 17
+      apt:
+        name: openjdk-17-jdk
+        state: present
+
+    - name: Verify Java installation
+      command: java -version
+      register: java_output
+      ignore_errors: yes
+
+    - name: Display Java version
+      debug:
+        var: java_output.stdout_lines

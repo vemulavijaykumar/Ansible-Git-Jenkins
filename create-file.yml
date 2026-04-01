@@ -1,0 +1,20 @@
+---
+- name: Create a file on all servers
+  hosts: servers
+  become: yes
+
+  tasks:
+    - name: Create a file
+      file:
+        path: /home/ubuntu/testfile.txt
+        state: touch
+        owner: ubuntu
+        group: ubuntu
+        mode: '0644'
+
+    - name: Add content to file
+      copy:
+        dest: /home/ubuntu/testfile.txt
+        content: |
+          Hello from Ansible!
+          This file is created using Ansible automation.

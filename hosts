@@ -1,0 +1,6 @@
+[servers]
+node1 ansible_host=13.62.178.212 ansible_user=ubuntu
+node2 ansible_host=13.60.100.172 ansible_user=ubuntu
+[webservers]
+node1 ansible_host=13.62.178.212 ansible_user=ubuntu port=80 domain=site1.com
+node2 ansible_host=13.60.100.172 ansible_user=ubuntu port=8080 domain=site2.com

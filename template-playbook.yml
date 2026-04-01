@@ -1,0 +1,11 @@
+- name: Practice template module
+  hosts: servers
+
+  vars:
+    name: Vijay Kumar
+
+  tasks:
+    - name: Create file using template
+      template:
+        src: mytemplate.j2
+        dest: /home/ubuntu/template-output.txt
